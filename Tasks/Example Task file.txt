@@ -1,5 +1,5 @@
 Example Task file
 
-Task Title
-Difficulty
-Description
+Task Title: Example File
+Difficulty: Not hard!
+Description: This is an example file meant to demonstrate the program!
