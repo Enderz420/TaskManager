@@ -11,8 +11,9 @@ def cli():
 
 @cli.command()
 def new_task():
-    click.echo("  Task naming format should be Task(Number). No spaces should be used either.")
-    click.echo("  What the task is should be specified in the description as to avoid conflicts in code.")
+    click.clear()
+    click.echo("Task naming format should be Task(Number). No spaces should be used either.")
+    click.echo("What the task is should be specified in the description as to avoid conflicts in code.")
     filename = click.prompt("What would you like the filename to be? Example = 'Example.txt' \n(Keep in mind this will be used to reference the file later on if you want to modify it.)", type=str)
     title = click.prompt("What is the title of the task?\n", type=str, default="Task1")
     difficulty = click.prompt("How hard is the task?", type=str, default="None")
@@ -32,8 +33,9 @@ def new_task():
 
 @cli.command()
 def view_tasks():
+    click.clear()
     click.echo(tasks)
-    task = click.prompt("  Which task do you want to view? Example = Task4.txt", type=str)
+    task = click.prompt("Which task do you want to view? Example = Task4.txt", type=str)
     location = "./Tasks"
     path = os.path.join(location, task)
     try:
@@ -44,10 +46,10 @@ def view_tasks():
         click.echo("File either doesn't exist or wasn't found. Please try again later")
 @cli.command()
 def delete_task():
-    click.echo("  Conducing this operation permanently deletes the task, use at own risk.")
-    click.echo("  To exit at any time, close the program.")
+    click.echo("Conducing this operation permanently deletes the task, use at own risk.")
+    click.echo("To exit at any time, close the program.")
     click.echo(tasks)
-    reqFile = click.prompt("  Which file do you want to delete? Format = 'Examplefile.txt'", type=str,)
+    reqFile = click.prompt("Which file do you want to delete? Format = 'Examplefile.txt'", type=str,)
     location = "./Tasks"
     path = os.path.join(location, reqFile)
     try:
@@ -61,6 +63,7 @@ def menu():
     menu = "main"
     while True:
         if menu == "main":
+            click.clear()
             click.echo("Main menu:")
             click.echo("  a: add task")
             click.echo("  v: view tasks")
