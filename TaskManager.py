@@ -29,8 +29,7 @@ def delete_task():
     location = "./Tasks"
     path = os.path.join(location, reqFile)
     try:
-        if os.path.isfile(reqFile):
-            os.remove(path)
+        os.remove(path)
     except OSError:
         return
 
