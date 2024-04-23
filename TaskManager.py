@@ -11,9 +11,15 @@ def cli():
 
 @cli.command()
 def new_task():
-    click.echo("Task naming format should be Task(Number)")
+    click.echo("Task naming format should be Task(Number). No spaces should be used either.")
     click.echo("What the task is should be specified in the description as to avoid conflicts in code.")
     title = click.prompt("What is the title of the task?\n", type=str, default="Task1")
+
+@cli.command()
+def modify_task():
+    click.echo("  Which task do you want to modify?")
+    click.echo(tasks)
+    mtask = click.getchar()
 
 @cli.command()
 def delete_task():
@@ -21,7 +27,7 @@ def delete_task():
     click.echo("  To exit at any time, close the program.")
     reqFile = click.prompt("Which file do you want to delete?", type=str,)
     if os.path.isfile(reqFile):
-        os.remove(reqFile)
+        os.remove(f"Tasks/{reqFile}")
 
 @cli.command()
 def menu():
@@ -57,9 +63,7 @@ def menu():
             else:
                 click.echo("Invalid input")
         elif menu == "modify":
-            click.echo("  Which task do you want to modify?")
-            click.echo(tasks)
-            mtask = click.getchar()
+            modify_task()
         elif menu == "delete":
             click.echo("  Conducing this operation permanently deletes the task, use at own risk.")
 
