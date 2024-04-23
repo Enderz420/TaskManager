@@ -25,9 +25,14 @@ def modify_task():
 def delete_task():
     click.echo("  Conducing this operation permanently deletes the task, use at own risk.")
     click.echo("  To exit at any time, close the program.")
-    reqFile = click.prompt("Which file do you want to delete?", type=str,)
-    if os.path.isfile(reqFile):
-        os.remove(f"Tasks/{reqFile}")
+    reqFile = click.prompt("Which file do you want to delete? Format = 'Examplefile.txt'", type=str,)
+    location = "./Tasks"
+    path = os.path.join(location, reqFile)
+    try:
+        if os.path.isfile(reqFile):
+            os.remove(path)
+    except OSError:
+        return
 
 @cli.command()
 def menu():
@@ -65,7 +70,7 @@ def menu():
         elif menu == "modify":
             modify_task()
         elif menu == "delete":
-            click.echo("  Conducing this operation permanently deletes the task, use at own risk.")
+            delete_task()
 
 
         elif menu == "quit":
