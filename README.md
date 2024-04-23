@@ -1,11 +1,11 @@
-### Simple Task Manager using Click
+## Simple Task Manager using Click
 What is this??
 
 It's simple, it's a Simple CLI Task Manager using the Click library.
 
 ----
 
-### How to install
+## How to install
 ### 1. Clone repository
 Clone the repo and open navigate to it in the terminal.
 ### 2. Install required libraries
